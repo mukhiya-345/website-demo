@@ -1,76 +1,1037 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - ayushbasnet27.com.np</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #35424a;
-            color: #ffffff;
-            padding: 20px 0;
-            text-align: center;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: #ffffff;
-            text-decoration: none;
-        }
-        section {
-            padding: 20px;
-            margin: 20px;
-            background-color: #ffffff;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #35424a;
-            color: #ffffff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayush Basnet - Tech Enthusiast</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+      :root {
+          --primary-color: #2c3e50;
+          --secondary-color: #3498db;
+          --accent-color: #e74c3c;
+          --light-color: #ecf0f1;
+          --dark-color: #2c3e50;
+          --text-color: #333;
+          --transition: all 0.3s ease;
+      }
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      html {
+          scroll-behavior: smooth;
+      }
+      body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          line-height: 1.6;
+          color: var(--text-color);
+          background-color: #f9f9f9;
+          background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+          background-attachment: fixed;
+          overflow-x: hidden;
+      }
+      /* Header styles */
+      header {
+          background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+          color: white;
+          padding: 1rem 0;
+          position: fixed;
+          width: 100%;
+          top: 0;
+          z-index: 1000;
+          box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+          transition: var(--transition);
+      }
+      header.scrolled {
+          padding: 0.5rem 0;
+          background: rgba(44, 62, 80, 0.95);
+          backdrop-filter: blur(10px);
+      }
+      .header-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 2rem;
+      }
+      .logo {
+          display: flex;
+          align-items: center;
+      }
+      .logo h1 {
+          font-size: 1.8rem;
+          font-weight: 700;
+          margin-left: 10px;
+          background: linear-gradient(to right, #fff, var(--secondary-color));
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          transition: var(--transition);
+      }
+      .logo-icon {
+          font-size: 2rem;
+          color: var(--secondary-color);
+          animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.1); }
+          100% { transform: scale(1); }
+      }
+      /* Navigation */
+      nav ul {
+          display: flex;
+          list-style: none;
+      }
+      nav ul li {
+          margin: 0 1rem;
+      }
+      nav ul li a {
+          color: white;
+          text-decoration: none;
+          font-weight: 500;
+          position: relative;
+          padding: 0.5rem 0;
+          transition: var(--transition);
+      }
+      nav ul li a:hover {
+          color: var(--secondary-color);
+      }
+      nav ul li a::after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: var(--secondary-color);
+          transition: var(--transition);
+      }
+      nav ul li a:hover::after {
+          width: 100%;
+      }
+      /* Mobile menu */
+      .hamburger {
+          display: none;
+          cursor: pointer;
+          background: none;
+          border: none;
+          color: white;
+          font-size: 1.5rem;
+      }
+      /* Main content */
+      main {
+          margin-top: 80px;
+          min-height: calc(100vh - 130px);
+      }
+      section {
+          padding: 4rem 2rem;
+          max-width: 1200px;
+          margin: 0 auto 2rem;
+          background-color: white;
+          border-radius: 15px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          transition: var(--transition);
+          position: relative;
+          overflow: hidden;
+      }
+      section:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+      section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 5px;
+          height: 100%;
+          background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color));
+      }
+      h2 {
+          font-size: 2.2rem;
+          margin-bottom: 1.5rem;
+          color: var(--primary-color);
+          position: relative;
+          display: inline-block;
+      }
+      h2::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 40%;
+          height: 3px;
+          background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+      }
+      p {
+          margin-bottom: 1rem;
+          text-align: justify;
+          line-height: 1.8;
+      }
+      /* Hero section */
+      .hero {
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://cdnjs.cloudflare.com/ajax/libs/images/pokhara.jpg') center/cover;
+          color: white;
+          margin-top: 0;
+          margin-bottom: 2rem;
+          padding: 0;
+          position: relative;
+          overflow: hidden;
+      }
+      .hero::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+      }
+      .hero-content {
+          max-width: 800px;
+          padding: 2rem;
+          z-index: 1;
+          position: relative;
+      }
+      .hero h1 {
+          font-size: 4rem;
+          margin-bottom: 1rem;
+          animation: fadeInDown 1s ease-out;
+          text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      }
+      .hero p {
+          font-size: 1.3rem;
+          margin-bottom: 2rem;
+          animation: fadeInUp 1s ease-out 0.5s forwards;
+          opacity: 0;
+          text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+      }
+      .btn {
+          display: inline-block;
+          background-color: var(--secondary-color);
+          color: white;
+          padding: 1rem 2.5rem;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: var(--transition);
+          border: 2px solid var(--secondary-color);
+          margin: 0 0.8rem;
+          animation: fadeInUp 1s ease-out 1s forwards;
+          opacity: 0;
+          box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+          position: relative;
+          overflow: hidden;
+      }
+      .btn::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: rgba(255, 255, 255, 0.2);
+          transition: all 0.6s;
+          transform: skewX(-30deg);
+      }
+      .btn:hover::before {
+          left: 100%;
+      }
+      .btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 20px rgba(52, 152, 219, 0.6);
+          background-color: transparent;
+          color: white;
+      }
+      .btn-outline {
+          background-color: transparent;
+          color: white;
+          border: 2px solid white;
+          box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+      }
+      .btn-outline:hover {
+          background-color: white;
+          color: var(--primary-color);
+          box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+      }
+      /* About section */
+      .about-content {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 3rem;
+      }
+      .about-text {
+          flex: 1;
+          min-width: 300px;
+      }
+      .about-image {
+          flex: 1;
+          min-width: 300px;
+          position: relative;
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+          transition: var(--transition);
+      }
+      .about-image:hover {
+          transform: rotate(2deg) scale(1.02);
+      }
+      .about-image img {
+          width: 100%;
+          border-radius: 15px;
+          transition: var(--transition);
+      }
+      .about-image:hover img {
+          transform: scale(1.05);
+      }
+      .skills {
+          margin-top: 3rem;
+      }
+      .skills h3 {
+          font-size: 1.8rem;
+          margin-bottom: 1.5rem;
+          color: var(--primary-color);
+          position: relative;
+          display: inline-block;
+      }
+      .skills h3::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 30%;
+          height: 2px;
+          background-color: var(--secondary-color);
+      }
+      .skill-bars {
+          margin-top: 1.5rem;
+      }
+      .skill-bar {
+          margin-bottom: 2rem;
+      }
+      .skill-info {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 0.8rem;
+          font-weight: 500;
+      }
+      .progress-bar {
+          height: 12px;
+          background-color: #e0e0e0;
+          border-radius: 10px;
+          overflow: hidden;
+          position: relative;
+          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      .progress {
+          height: 100%;
+          background: linear-gradient(to right, var(--secondary-color), #1abc9c);
+          border-radius: 10px;
+          width: 0;
+          transition: width 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          position: relative;
+      }
+      .progress::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+          background-size: 15px 15px;
+          animation: progressAnimation 1s linear infinite;
+      }
+      @keyframes progressAnimation {
+          0% {
+              background-position: 0 0;
+          }
+          100% {
+              background-position: 15px 0;
+          }
+      }
+      /* Projects section */
+      .projects-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          gap: 2.5rem;
+          margin-top: 2.5rem;
+      }
+      .project-card {
+          background-color: white;
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+          transition: var(--transition);
+          border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .project-card:hover {
+          transform: translateY(-15px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+      .project-img {
+          height: 220px;
+          overflow: hidden;
+          position: relative;
+      }
+      .project-img::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+          opacity: 0;
+          transition: var(--transition);
+          z-index: 1;
+      }
+      .project-card:hover .project-img::before {
+          opacity: 1;
+      }
+      .project-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.8s ease;
+      }
+      .project-card:hover .project-img img {
+          transform: scale(1.15);
+      }
+      .project-content {
+          padding: 1.8rem;
+      }
+      .project-title {
+          font-size: 1.4rem;
+          margin-bottom: 0.8rem;
+          color: var(--primary-color);
+          position: relative;
+          padding-bottom: 0.8rem;
+      }
+      .project-title::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 50px;
+          height: 2px;
+          background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+      }
+      .project-tags {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 1rem 0;
+          gap: 0.6rem;
+      }
+      .tag {
+          display: inline-block;
+          background-color: #f0f8ff;
+          padding: 0.3rem 0.8rem;
+          border-radius: 20px;
+          font-size: 0.85rem;
+          color: var(--secondary-color);
+          transition: var(--transition);
+          border: 1px solid rgba(52, 152, 219, 0.2);
+      }
+      .tag:hover {
+          background-color: var(--secondary-color);
+          color: white;
+          transform: translateY(-2px);
+      }
+      .project-links {
+          display: flex;
+          margin-top: 1.5rem;
+      }
+      .project-links a {
+          display: inline-flex;
+          align-items: center;
+          margin-right: 1.5rem;
+          color: var(--secondary-color);
+          text-decoration: none;
+          font-size: 0.95rem;
+          font-weight: 500;
+          transition: var(--transition);
+      }
+      .project-links a:hover {
+          color: var(--accent-color);
+          transform: translateX(3px);
+      }
+      .project-links a i {
+          margin-right: 0.5rem;
+          font-size: 1.1rem;
+      }
+      /* Contact section */
+      .contact-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 3rem;
+      }
+      .contact-info {
+          flex: 1;
+          min-width: 300px;
+      }
+      .contact-form {
+          flex: 1;
+          min-width: 300px;
+      }
+      .contact-item {
+          display: flex;
+          margin-bottom: 2rem;
+          align-items: flex-start;
+          transition: var(--transition);
+          padding: 1.2rem;
+          border-radius: 10px;
+          background-color: #f9f9f9;
+          box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+      }
+      .contact-item:hover {
+          transform: translateX(5px);
+          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+          background-color: #f0f8ff;
+      }
+      .contact-icon {
+          font-size: 1.5rem;
+          color: var(--secondary-color);
+          margin-right: 1.2rem;
+          margin-top: 0.3rem;
+          transition: var(--transition);
+      }
+      .contact-item:hover .contact-icon {
+          transform: scale(1.2);
+          color: var(--accent-color);
+      }
+      .contact-details h4 {
+          margin-bottom: 0.5rem;
+          color: var(--primary-color);
+          font-size: 1.2rem;
+      }
+      .social-links {
+          display: flex;
+          margin-top: 2rem;
+          gap: 1.2rem;
+      }
+      .social-links a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background-color: var(--light-color);
+          color: var(--primary-color);
+          text-decoration: none;
+          transition: var(--transition);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+          position: relative;
+          overflow: hidden;
+      }
+      .social-links a::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+          top: 0;
+          left: 0;
+          opacity: 0;
+          transition: var(--transition);
+          z-index: -1;
+      }
+      .social-links a:hover::before {
+          opacity: 1;
+      }
+      .social-links a:hover {
+          color: white;
+          transform: translateY(-8px) rotate(360deg);
+          box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+      }
+      .form-group {
+          margin-bottom: 1.8rem;
+      }
+      label {
+          display: block;
+          margin-bottom: 0.8rem;
+          font-weight: 500;
+          color: var(--primary-color);
+      }
+      input, textarea {
+          width: 100%;
+          padding: 1rem;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          font-family: inherit;
+          transition: var(--transition);
+          background-color: #f9f9f9;
+      }
+      input:focus, textarea:focus {
+          outline: none;
+          border-color: var(--secondary-color);
+          box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+          background-color: white;
+      }
+      textarea {
+          resize: vertical;
+          min-height: 180px;
+      }
+      button {
+          background: linear-gradient(to right, var(--secondary-color), #1abc9c);
+          color: white;
+          border: none;
+          padding: 1rem 2.5rem;
+          border-radius: 8px;
+          cursor: pointer;
+          font-weight: 600;
+          transition: var(--transition);
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+          font-size: 1rem;
+      }
+      button::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: rgba(255, 255, 255, 0.2);
+          transition: all 0.6s;
+          transform: skewX(-15deg);
+      }
+      button:hover::before {
+          left: 100%;
+      }
+      button:hover {
+          background: linear-gradient(to right, #1abc9c, var(--secondary-color));
+          transform: translateY(-3px);
+          box-shadow: 0 8px 20px rgba(52, 152, 219, 0.5);
+      }
+      /* Footer */
+      footer {
+          background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+          color: white;
+          padding: 3rem 0;
+          text-align: center;
+          position: relative;
+      }
+      .footer-content {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 2rem;
+      }
+      .footer-content p {
+          text-align: center;
+          font-size: 1.1rem;
+          opacity: 0.8;
+      }
+      .back-to-top {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, var(--secondary-color), #1abc9c);
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          z-index: 99;
+          opacity: 0;
+          visibility: hidden;
+          transition: var(--transition);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      .back-to-top.active {
+          opacity: 1;
+          visibility: visible;
+          animation: bounce 2s infinite;
+      }
+      @keyframes bounce {
+          0%, 100% {
+              transform: translateY(0);
+          }
+          50% {
+              transform: translateY(-10px);
+          }
+      }
+      .back-to-top:hover {
+          background: linear-gradient(135deg, #1abc9c, var(--secondary-color));
+          transform: scale(1.1);
+          box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5);
+      }
+      /* Animation keyframes */
+      @keyframes fadeInDown {
+          from {
+              opacity: 0;
+              transform: translateY(-30px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+      @keyframes fadeInUp {
+          from {
+              opacity: 0;
+              transform: translateY(30px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+      /* Particle animation for hero section */
+      .particles {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+      }
+      .particle {
+          position: absolute;
+          background-color: white;
+          border-radius: 50%;
+          opacity: 0.6;
+          animation: float 15s infinite linear;
+      }
+      @keyframes float {
+          0% {
+              transform: translateY(0) rotate(0deg);
+              opacity: 0.6;
+          }
+          100% {
+              transform: translateY(-100vh) rotate(360deg);
+              opacity: 0;
+          }
+      }
+      /* Responsive styles */
+      @media screen and (max-width: 768px) {
+          header {
+              padding: 1rem 0;
+          }
+          .header-container {
+              padding: 0 1rem;
+          }
+          .logo h1 {
+              font-size: 1.5rem;
+          }
+          nav ul {
+              position: fixed;
+              top: 70px;
+              left: -100%;
+              width: 100%;
+              flex-direction: column;
+              background-color: var(--primary-color);
+              text-align: center;
+              transition: var(--transition);
+              padding: 1rem 0;
+              box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+              z-index: 1000;
+          }
+          nav ul.active {
+              left: 0;
+          }
+          nav ul li {
+              margin: 1rem 0;
+          }
+          .hamburger {
+              display: block;
+          }
+          section {
+              padding: 2rem 1rem;
+          }
+          .hero h1 {
+              font-size: 2.5rem;
+          }
+          .hero p {
+              font-size: 1rem;
+          }
+          .btn {
+              padding: 0.8rem 1.5rem;
+              margin: 0.5rem;
+          }
+          .project-card {
+              width: 100%;
+          }
+          .about-image {
+              order: -1;
+              margin-bottom: 1.5rem;
+          }
+      }
+      @media screen and (max-width: 480px) {
+          .hero h1 {
+              font-size: 2rem;
+          }
+          h2 {
+              font-size: 1.8rem;
+          }
+          .btn {
+              display: block;
+              width: 100%;
+              margin: 0.8rem 0;
+          }
+      }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Ayush Basnet</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I'm Ayush Basnet, a passionate tech enthusiast hailing from picturesque city of Pokhara, Nepal.My curiosity and drive are fueled by the ever-evolving world of technology, with a keen interest in the Internet of Things (IoT) and networking protocols.Growing up amidst the serene landscapes of Pokhara, I've always been inspired to explore how emerging technologies can bridge gaps and create smarter, more connected communities. Whether it's delving into the intricacies of IoT devices or understanding the complexities of networking systems, I thrive on staying at the forefront of technological advancements.
-I'm excited to connect with like-minded individuals and contribute to innovative projects that harness the power of technology to make a meaningful impact. Let's collaborate and shape the future together!.</p>
-    </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>As a passionate tech enthusiast, I've embarked on several hands-on projects that merge the realms of IoT, AI, and networking. Utilizing the NodeMCU platform, I've developed innovative solutions that address real-world challenges.</p>
-    </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: ayushbasnet3566@gmail.com</p>
-    </section>
-    <footer>
-        <p>&copy; 2025 Ayush Basnet. All rights reserved.</p>
-    </footer>
+  <header id="header">
+      <div class="header-container">
+          <div class="logo">
+              <i class="fas fa-code logo-icon"></i>
+              <h1>Ayush Basnet</h1>
+          </div>
+          <button class="hamburger" id="hamburger">
+              <i class="fas fa-bars"></i>
+          </button>
+          <nav>
+              <ul id="nav-menu">
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#projects">Projects</a></li>
+                  <li><a href="#contact">Contact</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header>
+
+  <main>
+      <section id="home" class="hero">
+          <div class="particles" id="particles"></div>
+          <div class="hero-content">
+              <h1>Ayush Basnet</h1>
+              <p>Tech Enthusiast & IoT Specialist from Pokhara, Nepal</p>
+              <a href="#about" class="btn">Learn More</a>
+              <a href="#contact" class="btn btn-outline">Get In Touch</a>
+          </div>
+      </section>
+
+      <section id="about">
+          <h2>About Me</h2>
+          <div class="about-content">
+              <div class="about-text">
+                  <p>I'm Ayush Basnet, a passionate tech enthusiast hailing from the picturesque city of Pokhara, Nepal. My curiosity and drive are fueled by the ever-evolving world of technology, with a keen interest in the Internet of Things (IoT) and networking protocols.</p>
+                  <p>Growing up amidst the serene landscapes of Pokhara, I've always been inspired to explore how emerging technologies can bridge gaps and create smarter, more connected communities. Whether it's diving into IoT projects or mastering networking systems, I thrive on staying ahead of technological advancements.</p>
+                  <p>I'm excited to connect, collaborate, and create innovative solutions with like-minded individuals. Let's shape the future together!</p>
+                  
+                  <div class="skills">
+                      <h3>My Skills</h3>
+                      <div class="skill-bars">
+                          <div class="skill-bar">
+                              <div class="skill-info">
+                                  <span>IoT Development</span>
+                                  <span>85%</span>
+                              </div>
+                              <div class="progress-bar">
+                                  <div class="progress" style="width: 85%;"></div>
+                              </div>
+                          </div>
+                          
+                          <div class="skill-bar">
+                              <div class="skill-info">
+                                  <span>Networking Protocols</span>
+                                  <span>80%</span>
+                              </div>
+                              <div class="progress-bar">
+                                  <div class="progress" style="width: 80%;"></div>
+                              </div>
+                          </div>
+                          
+                          <div class="skill-bar">
+                              <div class="skill-info">
+                                  <span>Arduino/NodeMCU</span>
+                                  <span>90%</span>
+                              </div>
+                              <div class="progress-bar">
+                                  <div class="progress" style="width: 90%;"></div>
+                              </div>
+                          </div>
+                          
+                          <div class="skill-bar">
+                              <div class="skill-info">
+                                  <span>Web Development</span>
+                                  <span>75%</span>
+                              </div>
+                              <div class="progress-bar">
+                                  <div class="progress" style="width: 75%;"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="about-image">
+                  <img src="https://via.placeholder.com/500x600" alt="Ayush Basnet">
+              </div>
+          </div>
+      </section>
+
+      <section id="projects">
+          <h2>Projects</h2>
+          <p>As a passionate tech enthusiast, I've embarked on several hands-on projects that merge the realms of IoT, networking, and web development. Below are a few highlights of my work that showcase my skills and dedication.</p>
+          <div class="projects-grid">
+              <div class="project-card">
+                  <div class="project-img">
+                      <img src="https://via.placeholder.com/320x220" alt="IoT Home Automation">
+                  </div>
+                  <div class="project-content">
+                      <h3 class="project-title">IoT Home Automation</h3>
+                      <div class="project-tags">
+                          <span class="tag">IoT</span>
+                          <span class="tag">Automation</span>
+                          <span class="tag">Raspberry Pi</span>
+                      </div>
+                      <p>Developed a smart home system that integrates sensors, actuators, and web interfaces to control lighting, temperature, and security from anywhere.</p>
+                      <div class="project-links">
+                          <a href="#"><i class="fas fa-external-link-alt"></i>Live Demo</a>
+                          <a href="#"><i class="fab fa-github"></i>Source Code</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="project-card">
+                  <div class="project-img">
+                      <img src="https://via.placeholder.com/320x220" alt="Weather Station">
+                  </div>
+                  <div class="project-content">
+                      <h3 class="project-title">Smart Weather Station</h3>
+                      <div class="project-tags">
+                          <span class="tag">Arduino</span>
+                          <span class="tag">Sensors</span>
+                          <span class="tag">Data Logging</span>
+                      </div>
+                      <p>Built a weather station that collects real-time data on temperature, humidity, and air pressure, displaying results via an interactive web dashboard.</p>
+                      <div class="project-links">
+                          <a href="#"><i class="fas fa-external-link-alt"></i>Live Demo</a>
+                          <a href="#"><i class="fab fa-github"></i>Source Code</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="project-card">
+                  <div class="project-img">
+                      <img src="https://via.placeholder.com/320x220" alt="Smart Agriculture">
+                  </div>
+                  <div class="project-content">
+                      <h3 class="project-title">Smart Agriculture System</h3>
+                      <div class="project-tags">
+                          <span class="tag">IoT</span>
+                          <span class="tag">Data Analytics</span>
+                          <span class="tag">Machine Learning</span>
+                      </div>
+                      <p>Designed an integrated solution for optimizing crop health monitoring using IoT sensors and predictive analytics to assist local farmers.</p>
+                      <div class="project-links">
+                          <a href="#"><i class="fas fa-external-link-alt"></i>Live Demo</a>
+                          <a href="#"><i class="fab fa-github"></i>Source Code</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section id="contact">
+          <h2>Contact</h2>
+          <div class="contact-container">
+              <div class="contact-info">
+                  <div class="contact-item">
+                      <i class="fas fa-map-marker-alt contact-icon"></i>
+                      <div class="contact-details">
+                          <h4>Location</h4>
+                          <p>Pokhara, Nepal</p>
+                      </div>
+                  </div>
+                  <div class="contact-item">
+                      <i class="fas fa-envelope contact-icon"></i>
+                      <div class="contact-details">
+                          <h4>Email</h4>
+                          <p><a href="mailto:ayushbasnet3566@gmail.com" style="color: var(--text-color); text-decoration: none;">ayushbasnetofficial@gmail.com</a></p>
+                      </div>
+                  </div>
+                  <div class="contact-item">
+                      <i class="fas fa-phone contact-icon"></i>
+                      <div class="contact-details">
+                          <h4>Phone</h4>
+                          <p>+977-9826111020</p>
+                      </div>
+                  </div>
+                  <div class="social-links">
+                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                      <a href="#"><i class="fab fa-github"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                  </div>
+              </div>
+              <div class="contact-form">
+                  <form action="#" method="post">
+                      <div class="form-group">
+                          <label for="name">Name</label>
+                          <input type="text" id="name" name="name" placeholder="Your Name" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="email">Email</label>
+                          <input type="email" id="email" name="email" placeholder="Your Email" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="message">Message</label>
+                          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                      </div>
+                      <button type="submit">Send Message</button>
+                  </form>
+              </div>
+          </div>
+      </section>
+  </main>
+
+  <footer>
+      <div class="footer-content">
+          <p>© 2025 Ayush Basnet. All rights reserved.</p>
+      </div>
+      <a href="#header" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+  </footer>
+
+  <script>
+      // Toggle mobile menu
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('nav-menu');
+      hamburger.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+      });
+
+      // Change header on scroll
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+          if(window.scrollY > 50) {
+              header.classList.add('scrolled');
+          } else {
+              header.classList.remove('scrolled');
+          }
+      });
+
+      // Animate progress bars
+      document.querySelectorAll('.progress').forEach(progress => {
+          const width = progress.getAttribute('data-width') || progress.style.width;
+          progress.style.width = width;
+      });
+
+      // Back to top button
+      const backToTop = document.querySelector('.back-to-top');
+      window.addEventListener('scroll', () => {
+          if(window.scrollY > 300) {
+              backToTop.classList.add('active');
+          } else {
+              backToTop.classList.remove('active');
+          }
+      });
+  </script>
 </body>
 </html>
